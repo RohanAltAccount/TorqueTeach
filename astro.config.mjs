@@ -8,6 +8,10 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Torque Teach",
+      editLink: {
+        baseUrl:
+          "https://github.com/TexasTorque/TorqueTeach/edit/master/src/content/docs/",
+      },
       social: [
         {
           icon: "github",

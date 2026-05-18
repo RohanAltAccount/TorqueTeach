@@ -31,7 +31,16 @@ export default defineConfig({
                 { label: "Design", slug: "subteams/mechanical/design" },
                 {
                   label: "Fabrication",
-                  slug: "subteams/mechanical/fabrication",
+                  items: [
+                    {
+                      label: "Machines",
+                      slug: "subteams/mechanical/fabrication/machines",
+                    },
+                    {
+                      label: "CAM",
+                      slug: "subteams/mechanical/fabrication/cam",
+                    },
+                  ],
                 },
                 { label: "Assembly", slug: "subteams/mechanical/assembly" },
               ],

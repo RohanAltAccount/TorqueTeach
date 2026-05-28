@@ -7,6 +7,8 @@ import {
 } from "./appwrite";
 import { isMember } from "./isMember";
 const ADMIN_TEAM_ID = import.meta.env.PUBLIC_APPWRITE_ADMIN_TEAM_ID;
+const MEMBER_TEAM_ID = import.meta.env.PUBLIC_APPWRITE_MEMBER_TEAM_ID;
+
 
 export async function createProfileIfNeeded() {
   try {
@@ -26,6 +28,7 @@ export async function createProfileIfNeeded() {
             user.$id
           )
         ]
+        
   });
 
     if ((existing.rows?.length ?? 0) > 0) {
@@ -40,12 +43,7 @@ export async function createProfileIfNeeded() {
         userName: user.name
       },
       permissions: [
-        Permission.read(Role.team(ADMIN_TEAM_ID)),
-        Permission.update(Role.team(ADMIN_TEAM_ID)),
-        Permission.delete(Role.team(ADMIN_TEAM_ID)),
-        Permission.read(Role.user(user.$id)),
-        Permission.create(Role.user(user.$id)),
-        Permission.create(Role.user(ADMIN_TEAM_ID))
+        Permission.read(Role.user(user.$id))
       ]
     });
   }catch (err) {
